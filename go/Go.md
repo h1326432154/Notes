@@ -44,3 +44,17 @@
 * 包的每个源文件也可以有多个init函数
 
 ### Go并发编程
+
+#### 协程使用
+
+    * 例：
+
+    var wg sync.WaitGroup // wg
+    for i := 1; i <= 3; i++ {
+        wg.Add(1)   // 新增一个协程
+        go func(i int) {    // 协程标识 go func
+            fmt.Printf("%d", i)
+            wg.Done()   // 主体执行完，关闭协程wg.Done() 等同于 wg.Add(-1)
+        }(i)
+    }
+    wg.Wait()   // 协程执行中，等待
