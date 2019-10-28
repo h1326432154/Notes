@@ -1,4 +1,4 @@
-package code
+package main
 
 import "testing"
 
@@ -6,8 +6,9 @@ import "testing"
 func TestArrayBounds(t *testing.T) {
 	i := 0
 	arr := [3]int{0}
-	for ; i < 3; i++ {
+	for ; i <= 4; i++ {
 		arr[i] = 0
-		t.Logf("====%d", arr[i])
+		t.Logf("i = %d | ", i)
+		t.Logf("arr[i] = %d | ", arr[i])
 	}
 }
