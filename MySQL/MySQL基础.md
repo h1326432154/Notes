@@ -1,6 +1,8 @@
 # MySQL 笔记
 
-## [MySQL查询过程](./MySQL_001.png)
+## MySQL查询过程
+
+![MySQL查询过程](./resource/MySQL_001.png)
 
 ## 数据库连接方式
 
@@ -18,15 +20,17 @@
 
 ### 重要的日志模块 redo log模块
 
-  更新时会用到[WAL(Write-Ahead Logging)技术](./MySQL_002.jpeg)，redo log模块
-  
-  [过程](./MySQL_003.jpeg)
+  更新时会用到`WAL(Write-Ahead Logging)技术`，redo log模块
+
+  ![WAL(Write-Ahead Logging)技术](./resource/MySQL_002.jpeg)
+
+  ![过程](./resource/MySQL_003.jpeg)
 
 ### 重要的日志模块 binlog模块
 
-  [为何会有两个日志模块？](./MySQL_004.jpeg)
+  [为何会有两个日志模块？](./resource/MySQL_004.jpeg)
 
-  [更新语句执行过程](./MySQL_005.jpeg)
+  [更新语句执行过程](./resource/MySQL_005.jpeg)
   
 ### 索引
 
