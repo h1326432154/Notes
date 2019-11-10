@@ -1,29 +1,36 @@
+#
 
-# 程序员的自我修养
-
----
-
-## [数据结构算法](./数据结构算法/README.md)
+### 程序员的自我修养
 
 ---
 
-## [MySQL](./MySQL/README.md)
+### [数据结构算法](./数据结构算法/数据结构算法.md)
+
+* [复杂度分析](./数据结构算法/复杂度分析.md)
+
+* [数组](./数据结构算法/数组.md)
+
+* [线性表](./数据结构算法/线性表.md)
 
 ---
 
-## [Nginx](./Nginx/README.md)
+### [MySQL](./MySQL/README.md)
 
 ---
 
-## [GoLang](./GoLang/README.md)
+### [Nginx](./Nginx/README.md)
 
 ---
 
-## [消息队列](./消息队列/README.md)
+### [GoLang](./GoLang/README.md)
 
 ---
 
-## [设计模式](./设计模式/README.md)
+### [消息队列](./消息队列/README.md)
+
+---
+
+### [设计模式](./设计模式/README.md)
 
 ---
 
