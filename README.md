@@ -1,4 +1,6 @@
-### 程序员的自我修养
+#
+
+## 程序员的自我修养
 
 ---
 
@@ -10,15 +12,19 @@
 
 ---
 
+### [GoLang](./GoLang/README.md)
+
+* [GoLang基础](./GoLang/基础.md)
+  
+  * [环境变量](./GoLang/基础.md)
+
+---
+
 ### [MySQL](./MySQL/README.md)
 
 ---
 
 ### [Nginx](./Nginx/README.md)
-
----
-
-### [GoLang](./GoLang/README.md)
 
 ---
 
