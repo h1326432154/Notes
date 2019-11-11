@@ -5,7 +5,12 @@
     * [Go语言源码的组织方式](#1.Go语言源码的组织方式)
     * [源码安装后的结果](#2.源码安装后的结果)
     * [构建和安装Go程序的过程](#3.构建和安装Go程序的过程)
-  * [扩展](#扩展)
+    * [扩展](#扩展)
+* [源码文件](#源码文件)
+  * [命令源码文件](#命令源码文件)
+    * [命令源码文件接收参数](#1.命令源码文件接收参数)
+    * [运行命令源码文件并传参](#2.运行命令源码文件并传参)
+    * [自定义命令源码文件的参数说明](#3.自定义命令源码文件的参数说明)
 
 ---
 
@@ -64,3 +69,120 @@ GOPATH:Go语言的`工作目录`，它的值是一个目录的路径，也可以
   GOPATH——>GOPATH从上到下的顺序。
 2. 如果在多个工作区中都存在导入路径相同的代码包会产生冲突吗？
   不会，因为查找顺序是按从上到下先后顺序找的，先找到哪一个就用哪一个
+
+## 源码文件
+
+环境变量 GOPATH 指向的是一个或多个工作区，每个工作区中都会有以代码包为基本组织形式的源码文件。
+> 这里的源码文件又分为三种，即：`命令源码文件`、`库源码文件`和`测试源码文件`，它们都有着不同的用途和编写规则。
+
+### 命令源码文件
+
+ 命令源码文件是程序的运行入口，是每个可独立运行的程序必须拥有的。我们可以通过构建或安装，生成与其对应的可执行文件，后者一般会与该命令源码文件的直接父目录同名。
+
+> 如果一个源码文件声明属于main包，并且包含一个无参数声明且无结果声明的main函数，那么它就是命令源码文件。
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+  fmt.Println("Hello, world!")
+}
+```
+
+ 当需要模块化编程时，我们往往会将代码拆分到多个文件，甚至拆分到不同的代码包中。但无论怎样，对于一个独立的程序来说，命令源码文件永远只会也只能有一个。如果有与命令源码文件同包的源码文件，那么它们也应该声明属于main包
+
+#### 1.命令源码文件接收参数
+
+Go 语言标准库中有一个代码包专门用于接收和解析命令参数。这个代码包的名字叫`flag`。  
+**例:`flag.StringVar(&name, "name", "everyone", "The greeting object.")`**  
+函数flag.StringVar接受 4 个参数。  
+第1个参数是用于存储该命令参数值的地址，具体到这里就是在前面声明的变量name的地址了，由表达式&name表示。  
+第2个参数是为了指定该命令参数的名称，这里是name。  
+第3个参数是为了指定在未追加该命令参数时的默认值，这里是everyone。  
+第4个函数参数，即是该命令参数的简短说明了，这在打印命令说明时会用到。
+
+#### 2.运行命令源码文件并传参
+
+[代码示例](./code/main.go)
+
+```go
+package main
+
+import (
+  "flag"
+  "fmt"
+)
+
+var name string
+
+func init() {
+  flag.StringVar(&name, "name", "everyone", "The greeting object.")
+}
+
+func main() {
+  flag.Parse()
+  fmt.Printf("Hello, %s!\n", name)
+}
+```
+
+操作步骤如下  
+
+1.编译代码
+
+```.
+$go build main.go
+```
+
+将会生成可执行文件 **`main`**
+
+2.查看命令源码参数说明
+
+```.
+$ ./main -h  
+Usage of ./main:  
+  -name string  
+    The greeting object. (default "everyone")`
+```
+
+将会提示引导参数的输入
+
+3.传参并运行
+
+```.
+$ ./main -name "kitty"
+输出为：Hello, kitty!
+```
+
+#### 3.自定义命令源码文件的参数说明
+
+最简单的一种方式就是对变量flag.Usage重新赋值。flag.Usage的类型是func()，即一种无参数声明且无结果声明的函数类型。
+
+将如下代码加入上面示例代码main函数开头
+
+```go
+flag.Usage = func() {
+  fmt.Fprintf(os.Stderr, "Usage of %s:\n", "question")
+  flag.PrintDefaults()
+}
+```
+
+运行结果:
+
+```.
+$ ./main -h
+Usage of question:
+  -name string
+    The greeting object. (default "everyone")
+```
+
+也可以将如下代码加入init()的开头
+
+```go
+flag.CommandLine = flag.NewFlagSet("", flag.PanicOnError)
+flag.CommandLine.Usage = func() {
+  fmt.Fprintf(os.Stderr, "Usage of %s:\n", "question")
+  flag.PrintDefaults()
+}
+```

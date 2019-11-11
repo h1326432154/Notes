@@ -14,9 +14,10 @@
 
 ### [GoLang](./GoLang/README.md)
 
-* [GoLang基础](./GoLang/基础.md)
+* GoLang基础
   
-  * [环境变量](./GoLang/基础.md)
+  * [环境变量](./GoLang/GOPATH.md)
+  * [源码文件](./GoLang/GOPATH.md)
 
 ---
 
