@@ -18,9 +18,10 @@ func TestScope(t *testing.T) {
 	fmt.Printf("The block is %s.\n", block)
 }
 
-// 测试结果
-// $ go test -v ./scope/
-// === RUN   TestScope
-// The block is inner.
-// The block is function.
-// --- PASS: TestScope (0.00s)
+/* 测试结果
+$ go test -v ./scope/
+=== RUN   TestScope
+	The block is inner.
+	The block is function.
+--- PASS: TestScope (0.00s)
+*/
