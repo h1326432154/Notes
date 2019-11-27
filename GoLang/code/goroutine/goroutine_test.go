@@ -1,12 +1,32 @@
-package channel
+package goroutine
 
 import (
 	"fmt"
+	"sync"
 	"testing"
 )
 
-// 开始执行
 func TestGoroutine(t *testing.T) {
+	num := 10
+
+	var wg sync.WaitGroup
+	for i := 0; i < num; i++ {
+		wg.Add(1)
+
+		go func(i int) {
+
+			fmt.Println(i)
+
+			wg.Done()
+		}(i)
+
+	}
+
+	wg.Wait()
+}
+
+// TestGoroutine1 开始执行
+func TestA(t *testing.T) {
 	ThreadPool()
 }
 
