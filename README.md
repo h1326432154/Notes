@@ -16,9 +16,9 @@
 
 * GoLang基础
   
-  * [环境变量](./GoLang/-Go项目结构.md)
-  * [源码文件](./GoLang/-Go项目结构.md)
-  * [程序实体](./GoLang/-程序实体.md)
+  * [环境变量](./GoLang/0-Go项目结构.md)
+  * [源码文件](./GoLang/0-Go项目结构.md)
+  * [程序实体](./GoLang/0-程序实体.md)
 
 * GoLang进阶
 
@@ -33,6 +33,8 @@
   9. [通道(channel)](./GoLang/9-channel通道.md)
   10. [协程(goroutine)](./GoLang/10-goroutine协程.md)
   11. [恐慌(panic)](./GoLang/11-panic恐慌.md)
+  12. [错误处理(error)](./GoLang/12-error错误处理.md)
+  13. [测试(test)](./GoLang/13-test测试.md)
 
 * GoLang实践
 
