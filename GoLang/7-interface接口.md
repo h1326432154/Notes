@@ -29,4 +29,3 @@ type Pet interface {
 ### interface类型与struct类型
 
 struct里面的成员是变量，而interface里面的成员是函数，即我们可以使用interface定义接口。
-
