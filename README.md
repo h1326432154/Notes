@@ -42,6 +42,8 @@
 
 ### [MySQL](./MySQL/README.md)
 
+* [MySQL基础](./MySQL/MySQL基础.md)
+
 ---
 
 ### [Nginx](./Nginx/README.md)
