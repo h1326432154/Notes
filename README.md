@@ -14,13 +14,13 @@
 
 ### [GoLang](./GoLang/README.md)
 
-* GoLang基础
+* GoLang前导
   
   * [环境变量](./GoLang/0-Go项目结构.md)
   * [源码文件](./GoLang/0-Go项目结构.md)
   * [程序实体](./GoLang/0-程序实体.md)
 
-* GoLang进阶
+* GoLang基础
 
   1. [数组(array)和切片(slice)](./GoLang/1-array数组和slice切片.md)
   2. [链表(list)](./GoLang/2-list链表.md)
@@ -36,7 +36,7 @@
   12. [错误处理(error)](./GoLang/12-error错误处理.md)
   13. [测试(test)](./GoLang/13-test测试.md)
 
-* GoLang实践
+* GoLang进阶
 
 ---
 
