@@ -9,6 +9,9 @@ func TestBubbleSort(t *testing.T) {
 	t.Logf("输入为: %+v", in)
 	res := BubbleSort(in)
 	t.Logf("冒泡排序结果为: %+v", res)
+
+	res1 := InsertionSort(in)
+	t.Logf("插入排序结果为: %+v", res1)
 }
 
 func BubbleSort(in []int) []int {
@@ -26,5 +29,28 @@ func BubbleSort(in []int) []int {
 			break
 		}
 	}
+	return in
+}
+
+func InsertionSort(in []int) []int {
+
+	if len(in) <= 1 {
+		return nil
+	}
+
+	for i := 1; i < len(in); i++ {
+		value := in[i]
+		j := i - 1
+		// 查找插入的位置
+		for ; j >= 0; j-- {
+			if in[j] > value {
+				in[j+1] = in[j] // 数据移动
+			} else {
+				break
+			}
+		}
+		in[j+1] = value // 插入数据
+	}
+
 	return in
 }
