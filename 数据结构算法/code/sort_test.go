@@ -14,6 +14,7 @@ func TestBubbleSort(t *testing.T) {
 	t.Logf("插入排序结果为: %+v", res1)
 }
 
+// 冒泡排序
 func BubbleSort(in []int) []int {
 	for i := 0; i < len(in); i++ {
 		flag := false
@@ -32,6 +33,7 @@ func BubbleSort(in []int) []int {
 	return in
 }
 
+// 插入排序
 func InsertionSort(in []int) []int {
 
 	if len(in) <= 1 {
