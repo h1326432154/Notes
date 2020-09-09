@@ -1,7 +1,6 @@
 #
 
 * [基本概念](#数组(array)和切片(slice))
-* [笔试题](./code/array/array_slice_test.go)
 
 ## 数组(array)和切片(slice)
 
