@@ -1,7 +1,9 @@
 package interfacetest
 
 import (
+	"encoding/json"
 	"fmt"
+	"reflect"
 	"testing"
 )
 
@@ -45,4 +47,16 @@ func TestInterface(t *testing.T) {
 	t.Logf("This pet is a %s, the name is %q.\n",
 		pet.Category(), pet.Name())
 
+}
+
+func TestInterFace1(t *testing.T) {
+	jsonStr := []byte(`{"age":1,"zz":333}`)
+	fmt.Println("jsonStr=", jsonStr)
+	fmt.Println("jsonStr=", string(jsonStr))
+	var value map[string]interface{}
+	json.Unmarshal(jsonStr, &value)
+	fmt.Println("value=", value)
+	age := value["age"]
+	fmt.Println("age=", age)
+	fmt.Println(reflect.TypeOf(age))
 }

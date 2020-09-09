@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"sync"
 	"testing"
+	"time"
 )
 
 func TestGoroutine(t *testing.T) {
@@ -65,4 +66,13 @@ func worker(id int, jobs <-chan int, results chan<- int) {
 		// time.Sleep(time.Second)
 		results <- j
 	}
+}
+
+func TestGoroutine1(t *testing.T) {
+	for i := 0; i < 10; i++ {
+		go func(i int) {
+			fmt.Println(i)
+		}(i)
+	}
+	time.Sleep(time.Millisecond * 50)
 }
