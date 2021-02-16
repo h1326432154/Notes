@@ -74,13 +74,24 @@ app-interface(BFF backend for frontend)
 如何划分业务边界
 cannal->kafka
 
-### gRPC
+### gRPC（HTTP2）
 
 多语言
 轻量级通讯 PB
 可插拔
 IDL 文件定义服务
 设计理念
-移动端 基于HTTP2设计 单连接 多路复用
+移动端 基于HTTP2设计 单连接 多路复用 http2相对于http1.1的优势
+healthCheck(接口) 平滑发布
 
 服务非对象 消息而非引用 粗粒度消息交互设计
+
+### 服务发现
+
+### 多集群
+
+google SRE
+
+### 多租户
+
+GC 吊打 CMS
